@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="TestProject.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TestProject"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Canvas>
+            <Button x:Name="btnRotate" Content="ClickToRotate" Click="btnRotate_Click" RenderTransformOrigin="0.5,0.5" >
+                <Button.RenderTransform>
+                    <RotateTransform x:Name="btnRotateTransform"/>
+                </Button.RenderTransform>
+            </Button>
+            <StackPanel x:Name="Wrapper" Background="Red" Canvas.Top="60" Canvas.Left="60" Width="250" Height="150"  ManipulationMode="All">
+                <StackPanel Background="Green" x:Name="SliderPanel" Canvas.Left="60" Canvas.Top="60" Width="250" Height="150" RenderTransformOrigin="0.5,0.5" >
+                    <Button x:Name="btnRotatePanel" Content="Click to rotate panel" Click="btnRotatePanel_Click"></Button>
+                    <TextBlock x:Name="txtSlider" Text="Slider_Value"></TextBlock>
+                    <Slider x:Name="volumeSlider" Header="Volume" Width="200" Minimum="0" Maximum="100"
+                        ValueChanged="volumeSlider_ValueChanged" ></Slider>
+                </StackPanel>
+            </StackPanel>
+        </Canvas>
+    </Grid>
+</Page>
