@@ -22,6 +22,7 @@
                         ValueChanged="volumeSlider_ValueChanged" ></Slider>
                 </StackPanel>
             </StackPanel>
+            
         </Canvas>
     </Grid>
 </Page>

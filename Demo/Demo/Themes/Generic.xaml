@@ -1,0 +1,31 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo" xmlns:local2="using:Demo.Controls">
+
+    <Style TargetType="local2:SliderPanel">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local2:SliderPanel">
+                    <StackPanel Background="Green" ManipulationMode="All">
+                        <TextBlock Text="Look at this cool Slider" FontSize="30" Margin="10, 5, 5, 10"></TextBlock>
+                        <Slider Minimum="0" Maximum="100" Header="Slide the Value!" Margin="10, 5, 5, 10"></Slider>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local2:TextAndButton" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local2:TextAndButton">
+                    <StackPanel Background="LightGray" ManipulationMode="All">
+                        <TextBlock Text="I'm a text inside a StackPanel" FontSize="30" Margin="10, 5, 5, 10"></TextBlock>
+                        <Button Content="Button Here" Margin="10,5,5,10"></Button>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
