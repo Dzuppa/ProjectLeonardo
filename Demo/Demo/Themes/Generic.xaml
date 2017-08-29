@@ -8,8 +8,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local2:SliderPanel">
                     <StackPanel Background="Green" ManipulationMode="All">
-                        <TextBlock Text="Look at this cool Slider" FontSize="30" Margin="10, 5, 5, 10"></TextBlock>
-                        <Slider Minimum="0" Maximum="100" Header="Slide the Value!" Margin="10, 5, 5, 10"></Slider>
+                        <TextBlock Text="{TemplateBinding PanelTitle}" FontSize="30" Margin="10, 5, 5, 10"></TextBlock>
+                        <Slider x:Name="SPSlider" Minimum="{TemplateBinding SetMinimum}" Maximum="{TemplateBinding SetMaximum}" 
+                                Header="{TemplateBinding SliderHeader}" Margin="10, 5, 5, 10"></Slider>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -21,11 +22,32 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local2:TextAndButton">
                     <StackPanel Background="LightGray" ManipulationMode="All">
-                        <TextBlock Text="I'm a text inside a StackPanel" FontSize="30" Margin="10, 5, 5, 10"></TextBlock>
-                        <Button Content="Button Here" Margin="10,5,5,10"></Button>
+                        <TextBlock Text="{TemplateBinding CustomText}" FontSize="{TemplateBinding SetFontSize}" 
+                                   Margin="10, 5, 5, 10"></TextBlock>
+                        <Button  x:Name="TBButton" Content="Button Here" Margin="10,5,5,10"></Button>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="local2:CheckAndSubmit" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local2:CheckAndSubmit">
+                    <StackPanel Background="Aqua">
+                        <TextBlock Text="Terms and Conditions" FontSize="30" Margin="0,10,0,0"></TextBlock>
+                        <TextBlock Text="{TemplateBinding TermsAndConditionsText}"></TextBlock>
+                        <CheckBox x:Name="CSCheckbox" Content="{TemplateBinding CheckText}"></CheckBox>
+                        <Button x:Name="CSButton" Content="{TemplateBinding ButtonText}"
+                                IsEnabled="{Binding IsChecked, ElementName=CSCheckbox}"></Button>
+                        <TextBlock Text="{TemplateBinding AfterSubmit}">
+                        </TextBlock>
+
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

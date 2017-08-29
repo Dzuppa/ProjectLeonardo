@@ -80,16 +80,20 @@ namespace Demo.Manipulation
 
         private void OnPointerMoved(object sender, PointerRoutedEventArgs e)
         {
+            //Feed the intermediate point into the gesture recognizer
             recognizer.ProcessMoveEvents(e.GetIntermediatePoints(reference));
         }
 
         private void OnPointerRelease(object sender, PointerRoutedEventArgs e)
         {
+            //feed the current point into the gesture recognizer as a up event
             recognizer.ProcessUpEvent(e.GetCurrentPoint(reference));
 
+            //release the pointer capture
             element.ReleasePointerCapture(e.Pointer);
         }
 
+        //Event to prevent crash when the pointer is canceled for unknown reasons
         private void OnPointerCanceled(object sender, PointerRoutedEventArgs e)
         {
             recognizer.CompleteGesture();
