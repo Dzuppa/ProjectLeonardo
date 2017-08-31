@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using static Demo.BusinessLogic.Model;
 
 namespace Demo
 {
@@ -30,6 +32,11 @@ namespace Demo
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            using (var db = new BooksContext())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>

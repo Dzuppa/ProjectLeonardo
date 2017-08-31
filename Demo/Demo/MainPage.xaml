@@ -24,6 +24,8 @@
                 <StackPanel x:Name="BC" Background="Bisque" ManipulationMode="All" >
                     <TextBlock Text="Press the button to visualize a list of interisting books"></TextBlock>
                     <Button x:Name="BlankButton" Click="BlankButton_Clicked" Content="Show Objects"></Button>
+                    <StackPanel x:Name="StackBook">
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Canvas>

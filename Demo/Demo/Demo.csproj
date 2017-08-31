@@ -96,7 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BusinessLogic\Book.cs" />
-    <Compile Include="BusinessLogic\Utility.cs" />
+    <Compile Include="BusinessLogic\Model.cs" />
+    <Compile Include="BusinessLogic\DBUtility.cs" />
     <Compile Include="Controls\CheckAndSubmit.cs" />
     <Compile Include="Controls\MyControl.cs" />
     <Compile Include="Controls\SliderPanel.cs" />
@@ -105,6 +106,11 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manipulation\ManipulationInputProcessor.cs" />
+    <Compile Include="Migrations\20170831085047_BookMigration.cs" />
+    <Compile Include="Migrations\20170831085047_BookMigration.designer.cs">
+      <DependentUpon>20170831085047_BookMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\BooksContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,8 +144,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <Version>1.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.105.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
