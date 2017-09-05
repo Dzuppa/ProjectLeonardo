@@ -95,7 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BusinessLogic\Book.cs" />
     <Compile Include="BusinessLogic\Model.cs" />
     <Compile Include="BusinessLogic\DBUtility.cs" />
     <Compile Include="Controls\CheckAndSubmit.cs" />
