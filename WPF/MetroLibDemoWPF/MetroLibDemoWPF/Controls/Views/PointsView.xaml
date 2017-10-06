@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="MetroLibDemoWPF.Controls.Views.PointsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MetroLibDemoWPF.Controls.Views"
+             xmlns:metrolib="clr-namespace:Metrolib;assembly=Metrolib"
+             xmlns:tree="clr-namespace:Metrolib.Controls;assembly=Metrolib"
+             MouseLeftButtonDown="root_MouseLeftButtonDown"
+             MouseLeftButtonUp="root_MouseLeftButtonUp"
+             MouseMove="root_MouseMove"    
+             BorderBrush="Black"
+             BorderThickness="1"
+             Background ="White"
+             mc:Ignorable="d" 
+             MaxHeight="300" MaxWidth="500"
+             d:DesignHeight="300" d:DesignWidth="300"
+             IsVisibleChanged="UserControl_IsVisibleChanged">
+    <DockPanel>
+        <metrolib:CircularProgressBar x:Name="progRing" IsIndeterminate="True" IsEnabled="True" Margin="200,0,0,20" />
+        <tree:RemoveButton x:Name="CloseBtn" Margin="0,0,0,5"  Content="Close Window" Click="CloseBtn_Click" DockPanel.Dock="Top" 
+                HorizontalAlignment="Left" MaxHeight="50" MaxWidth="150" Visibility="Collapsed"></tree:RemoveButton>
+        <TreeView x:Name="tree" MaxWidth="300" Visibility="Collapsed" DockPanel.Dock="Top">
+            <TreeViewItem Header="Countries">
+                <TreeViewItem Header="Italy">
+                    <TreeViewItem Header="Rome"/>
+                    <TreeViewItem Header="Milan"/>
+                    <TreeViewItem Header="Florence"/>
+                </TreeViewItem>
+                <TreeViewItem Header="China">
+                    <TreeViewItem Header="beijing"/>
+                </TreeViewItem>
+                <TreeViewItem Header="USA">
+                    <TreeViewItem Header="New York"/>
+                    <TreeViewItem Header="New Jersey"/>
+                    <TreeViewItem Header="Las Vegas"/>
+                    <TreeViewItem Header="Los Angeles"/>
+                    <TreeViewItem Header="Atlanta"/>
+                </TreeViewItem>
+                <TreeViewItem Header="France">
+                    <TreeViewItem Header="Paris"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Germany">
+                    <TreeViewItem Header="Berlin"/>
+                    <TreeViewItem Header="Hamburg"/>
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+    </DockPanel>
+</UserControl>

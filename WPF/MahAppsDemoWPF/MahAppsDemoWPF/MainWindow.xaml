@@ -1,0 +1,127 @@
+﻿<Controls:MetroWindow x:Class="MahAppsDemoWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+        xmlns:local="clr-namespace:MahAppsDemoWPF"
+        xmlns:views="clr-namespace:MahAppsDemoWPF.Controls.Views"
+        mc:Ignorable="d"
+        Title="Mah Apps WPF" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="settings" />
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_information_circle}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Info" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid x:Name="WindowGrid" Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="RightBlueGrid" Background="Blue" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Background="Transparent" BorderBrush="Transparent" Width="100" Height="100" 
+                    Foreground="White" x:Name="AirPButton" Click="AirPButton_Click">
+                <StackPanel>
+                    <Rectangle Width="35"
+                   Height="35"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_plane_rotated_135}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Airplanes" />
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" Background="Transparent" BorderBrush="Transparent" Width="100" Height="100" 
+                    Foreground="White" x:Name="BCBtn" Click="BCBtn_Click">
+                <StackPanel>
+                    <Rectangle Width="35"
+                   Height="35"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_social_basecamp}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Basecamps" />
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" Background="Transparent" BorderBrush="Transparent" Width="100" Height="100" 
+                    Foreground="White" x:Name="ShipBtn" Click="ShipBtn_Click">
+                <StackPanel>
+                    <Rectangle Width="35"
+                   Height="35"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_sailboat}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Ships" />
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" Background="Transparent" BorderBrush="Transparent" Width="100" Height="100" 
+                    Foreground="White" x:Name="btnPoints" Click="btnPoints_Click">
+                <StackPanel>
+                    <Rectangle Width="35"
+                   Height="35"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_map_location}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Points" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Image Source="Map/WorldMap.jpg" Grid.Column="2" Grid.Row="1"></Image>
+        <views:AirPlanesView x:Name="AP" Visibility="Collapsed" Grid.Column="2" Grid.Row="1" ></views:AirPlanesView>
+        <views:ShipsView x:Name="Ships" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"></views:ShipsView>
+        <views:BaseCampsView x:Name="BaseCamps" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"></views:BaseCampsView>
+        <views:PointsView x:Name="Points" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"></views:PointsView>
+    </Grid>
+</Controls:MetroWindow>

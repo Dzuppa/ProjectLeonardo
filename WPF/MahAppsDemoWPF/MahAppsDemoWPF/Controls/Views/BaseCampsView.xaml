@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="MahAppsDemoWPF.Controls.Views.BaseCampsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MahAppsDemoWPF.Controls.Views"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             MouseLeftButtonDown="root_MouseLeftButtonDown"
+             MouseLeftButtonUp="root_MouseLeftButtonUp"
+             MouseMove="root_MouseMove"    
+             BorderBrush="Black"
+             BorderThickness="1"
+             Background ="White"
+             mc:Ignorable="d" 
+             MaxHeight="300" MaxWidth="500"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel >
+        <Button x:Name="CloseBtn" Margin="0,0,0,5"  Content="Close Window" Click="CloseBtn_Click" DockPanel.Dock="Top" 
+                HorizontalAlignment="Left" MaxHeight="50" MaxWidth="150"></Button>
+        <ScrollViewer BorderBrush="Black" BorderThickness="1"  DockPanel.Dock="Top" Height="200" Width="200">
+            <StackPanel  x:Name="BCPanel" HorizontalAlignment="Center" >
+                <TextBox Margin="0,3,0,0" Width="150" Controls:TextBoxHelper.Watermark="Basecamp location" Controls:TextBoxHelper.ClearTextButton="True"></TextBox>
+                <TextBox Margin="0,3,0,0" Width="150" Text="Rome" IsEnabled="False" />
+                <TextBox Margin="0,3,0,0" Width="150" Text="Madrid" IsEnabled="False"/>
+                <TextBox Margin="0,3,0,0" Width="150" Text="London" IsEnabled="False"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Button DockPanel.Dock="Top" HorizontalAlignment="Center" Content="Add Basecamp" x:Name="AddBC" Click="AddBC_Click" Width="150" Height="50"></Button>
+    </DockPanel>
+</UserControl>

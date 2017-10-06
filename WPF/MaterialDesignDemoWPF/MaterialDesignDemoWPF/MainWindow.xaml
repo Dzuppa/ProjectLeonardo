@@ -1,0 +1,73 @@
+﻿<Window x:Class="MaterialDesignDemoWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialDesignDemoWPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:views="clr-namespace:MaterialDesignDemoWPF.Controls.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid x:Name="WindowGrid" Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="RightBlueGrid" Background="Blue" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Grid.Row="1" 
+                    Background="Transparent" BorderBrush="Transparent" Width="100" Height="100" 
+                    x:Name="AirPButton" Click="AirPButton_Click">
+                <StackPanel>
+                    <materialDesign:PackIcon Height="35" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Kind="Airplane" />
+                    <TextBlock Text="Airplanes"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" 
+                    Background="Transparent" BorderBrush="Transparent" Width="100" Height="100"
+                    x:Name="BaseCampBtn" Click="BaseCampBtn_Click">
+                <StackPanel>
+                    <materialDesign:PackIcon Height="35" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Kind="Basecamp" />
+                    <TextBlock Text="Basecamps"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" 
+                    Background="Transparent" BorderBrush="Transparent" Width="100" Height="100"
+                    x:Name="AnchorBtn" Click="AnchorBtn_Click">
+                <StackPanel>
+                    <materialDesign:PackIcon Height="35" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Kind="Anchor" />
+                    <TextBlock Text="Ships"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" 
+                    Background="Transparent" BorderBrush="Transparent" Width="100" Height="100" 
+                    x:Name="PointsBtn" Click="PointsBtn_Click">
+                <StackPanel>
+                    <materialDesign:PackIcon Height="35" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Kind="MapMarker" />
+                    <TextBlock Text="Points"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <materialDesign:Card Grid.Column="2" Grid.Row="1">
+            <Image Source="Map/WorldMap.jpg" ></Image>
+        </materialDesign:Card>
+        <views:AirPlanesView x:Name="AP" Visibility="Collapsed" Grid.Column="2" Grid.Row="1" ></views:AirPlanesView>
+        <views:PointsView x:Name="Points" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"></views:PointsView>
+        <views:ShipsView x:Name="Ships" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"></views:ShipsView>
+        <views:BaseCampsView x:Name="BaseCamps" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"></views:BaseCampsView>
+    </Grid>
+</Window>

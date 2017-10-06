@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="MUIDemoWPF.Controls.Views.HomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MUIDemoWPF.Controls.Views"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="WindowGrid" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="RightBlueGrid" Background="Blue" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" BorderBrush="Transparent" Background="Transparent"  Content="Airplanes"
+                              Height="100" Width="100" x:Name="APBtn" Click="APBtn_Click" FontWeight="Bold"
+                              MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" Foreground="White"
+                              ></Button>
+            <Button Grid.Row="2" Background="Transparent" BorderBrush="Transparent" Content="Basecamps" 
+                    MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" Width="100" Height="100"
+                    x:Name="BCBtn" Click="BCBtn_Click" FontWeight="Bold" Foreground="White"></Button>
+            <Button Grid.Row="3" Background="Transparent" BorderBrush="Transparent" Content="Ships" 
+                    MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" x:Name="ShipsBtn" Click="ShipsBtn_Click"
+                    FontWeight="Bold" Foreground="White" Width="100" Height="100" ></Button>
+            <Button Grid.Row="4" Background="Transparent" BorderBrush="Transparent" Content="Points" 
+                    MouseEnter="Btn_MouseEnter" MouseLeave="Btn_MouseLeave" Click="PointsBtn_Click"
+                    FontWeight="Bold" Foreground="White" x:Name="PointsBtn" Width="100" Height="100"
+                    ></Button>
+        </Grid>
+        <Image Source="../../Map/WorldMap.jpg" Grid.Column="2" Grid.Row="1"></Image>
+        <local:AirPlanesView x:Name="AP" Visibility="Collapsed" Grid.Column="2" Grid.Row="1" />
+        <local:BaseCampsView x:Name="BC" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"/>
+        <local:Points x:Name="Points" Visibility="Collapsed" Grid.Column="2" Grid.Row="1"/>
+        <local:ShipsView x:Name="Ships" Visibility="Collapsed" Grid.Column="2" Grid.Row="1" />
+    </Grid>
+</UserControl>

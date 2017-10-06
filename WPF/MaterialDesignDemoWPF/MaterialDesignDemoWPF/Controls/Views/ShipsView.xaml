@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="MaterialDesignDemoWPF.Controls.Views.ShipsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialDesignDemoWPF.Controls.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             MouseLeftButtonDown="root_MouseLeftButtonDown"
+             MouseLeftButtonUp="root_MouseLeftButtonUp"
+             MouseMove="root_MouseMove"    
+             BorderBrush="Black"
+             BorderThickness="5"
+             Background ="WhiteSmoke"
+             mc:Ignorable="d" 
+             MaxHeight="300" MaxWidth="500" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel >
+        <Button x:Name="CloseBtn"  Content="Close Window" Click="CloseBtn_Click" DockPanel.Dock="Top" HorizontalAlignment="Left" MaxHeight="50" MaxWidth="150"></Button>
+        <materialDesign:Flipper DockPanel.Dock="Left" Style="{StaticResource MaterialDesignCardFlipper}" Margin="4 4 0 0" >
+            <materialDesign:Flipper.FrontContent>
+                <Grid Height="256" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="160" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="Anchor" Height="128" Width="128"
+                                                 VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </materialDesign:ColorZone>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock>Valentina</TextBlock>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                Margin="0 4 0 0"
+                                >EDIT</Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Flipper.FrontContent>
+            <materialDesign:Flipper.BackContent>
+                <Grid Height="256" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="Accent" Padding="6">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                HorizontalAlignment="Left">
+                                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                            </Button>
+                            <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">EDIT SHIP</TextBlock>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+                    <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                          Width="172">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.IsFloating="True"
+                                 Margin="0 12 0 0">Valentina</TextBox>
+                        <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Country" materialDesign:HintAssist.IsFloating="True"
+                                 Margin="0 12 0 0">Italy</TextBox>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                            <TextBlock VerticalAlignment="Center">Email Contact</TextBlock>
+                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                            <TextBlock VerticalAlignment="Center">Telephone Contact</TextBlock>
+                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </materialDesign:Flipper.BackContent>
+        </materialDesign:Flipper>
+        <materialDesign:Flipper DockPanel.Dock="Left" Style="{StaticResource MaterialDesignCardFlipper}" Margin="4 4 0 0" >
+            <materialDesign:Flipper.FrontContent>
+                <Grid Height="256" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="160" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="Anchor" Height="128" Width="128"
+                                                 VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </materialDesign:ColorZone>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock>WAVE DANCER</TextBlock>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                Margin="0 4 0 0"
+                                >EDIT</Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Flipper.FrontContent>
+            <materialDesign:Flipper.BackContent>
+                <Grid Height="256" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="Accent" Padding="6">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                HorizontalAlignment="Left">
+                                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                            </Button>
+                            <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">EDIT SHIP</TextBlock>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+                    <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                          Width="172">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox materialDesign:HintAssist.Hint="Name" materialDesign:HintAssist.IsFloating="True"
+                                 Margin="0 12 0 0">WAVE DANCER</TextBox>
+                        <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Country" materialDesign:HintAssist.IsFloating="True"
+                                 Margin="0 12 0 0">USA</TextBox>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                            <TextBlock VerticalAlignment="Center">Email Contact</TextBlock>
+                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                            <TextBlock VerticalAlignment="Center">Telephone Contact</TextBlock>
+                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </materialDesign:Flipper.BackContent>
+        </materialDesign:Flipper>
+    </DockPanel>
+</UserControl>
