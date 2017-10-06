@@ -4,9 +4,8 @@ MATERIAL DESIGN XAML
 
 	PRO
 	
-	 - Molte combinazioni di colori tra cui scegliere
 	 - Grande quantità di icone fornite dalla libreria
-	 - Elemnti di UI che aggiunge ben fatti (le card sono davvero belle)
+	 - Elementi di UI che aggiunge ben fatti (le card sono davvero belle)
 	 - Integrabile con MahApps
 	 - Codice accessibile liberamente tramite GitHub
 	 - Design ispirato a Google
@@ -14,10 +13,10 @@ MATERIAL DESIGN XAML
 	
 	CONTRO
 	
-	 - Aggiunge pochi Elementi di UI (Card, orologi e progress bar)
+	 - Aggiunge pochi Elementi di UI nuovi (Card, orologi e progress bar)
 	 - Documentazione inesistente e codice privo commenti 
 	 - Design ispirato a Google
-	 - Si concentra soprattutto sullo stilizzare elementi di UI già forniti di base
+	 - Si concentra soprattutto sulla stilizzazione di elementi di UI già forniti di base
 	 
 	 
 
@@ -26,7 +25,7 @@ MAHAPPS
 	PRO
 	
 	 - Documentazione comprensiva di esempi sui control che aggiunge
-	 - Aggiunge un numero leggermente maggiore di elementi di UI rispetto a MaterialDesign
+	 - Aggiunge un numero leggermente maggiore di elementi di UI nuovi rispetto a MaterialDesign
 	 - Integrabile con MaterialDesign
 	 - Codice accessibile liberamente tramite GitHub
 	 - Completamente Open Source
@@ -37,8 +36,8 @@ MAHAPPS
 	
 	CONTRO
 	
-	 - Stilizzazione degli elmenti di UI meno rilevante rispetto a MaterialDesign (si può però rimediare integrando le due)
-	 - La documentazione non è presente per tutti i control ed, a volte, è poco accurata
+	 - Stilizzazione degli elmeneti di UI esteticamente meno accattivante rispetto a MaterialDesign (si può però rimediare integrando le due)
+	 - La documentazione non è presente per tutti gli elementi di UI ed, a volte, è poco accurata
 	 - Non tutto quello che aggiunge è fatto con la stessa qualità
 	 - Si concentra soprattutto sullo stilizzare elementi di UI già forniti di base
 	 
@@ -59,7 +58,7 @@ METROLIB
 	 - Elementi di UI aggiunti poco significativi
 	 - Non aggiunge stile a molti elementi di UI forniti di base da Microsoft
 	 - In generale alternativa decisamente meno interessante
-	 - Scritta in .NET Framework 4.5 (non so se crea problemi di compatibilità ma alcuni control si vedono diversamente dalla demo della libreria)
+	 - Scritta in .NET Framework 4.5 (non so se crea problemi di compatibilità ma alcuni elementi di UI si vedono diversamente dalla demo della libreria)
 	 - E' seguita da una sola persona, risulta quindi essere un progetto personale
 	
 	
@@ -78,4 +77,17 @@ MUI (Modern UI)
 	 - Stilizzazione degli elmenti di UI meno rilevante rispetto a MahApps 
 	 - Fornisce poche icone e non sono applicabili e tutti i tipi di elementi di UI
 	 - Graficamente meno interessante rispetto a MaterialDesign o MahApps
+	
+
+INTEGRAZIONE MATERIALDESIGN  E MAHAPPS
+
+	PRO
+	
+	 - L'integrazione tra le due permette di sfruttare i lati positivi di entrambe
+	 
+	
+	CONTRO
+	
+	 - Alcuni elementi di UI vengono stilizzati da tutte e due le librerie, risulta quindi determinante l'ordine di aggiunta delle librerie per sapere quale 
+           stilizzazione verrà applicata ad ogni elemento di UI
 	
