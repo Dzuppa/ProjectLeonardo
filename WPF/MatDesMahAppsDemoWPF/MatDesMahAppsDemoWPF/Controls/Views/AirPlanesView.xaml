@@ -26,7 +26,7 @@
                 </GridView>
             </ListView.View>
         </ListView>-->
-        <DataGrid ItemsSource="{Binding APData}" 
+        <DataGrid IsReadOnly="True" ItemsSource="{Binding APData}" 
                   Margin="10,20,10,0" AutoGenerateColumns="True" ></DataGrid>
     </DockPanel>
 </UserControl>
