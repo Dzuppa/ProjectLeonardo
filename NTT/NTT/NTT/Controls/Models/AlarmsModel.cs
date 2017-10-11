@@ -9,8 +9,8 @@ namespace NTT.Controls.Models
 {
     class AlarmsModel : INotifyPropertyChanged
     {
-        public string _id;
-        public string _name;
+        private string _id;
+        private string _name;
 
         public string Id
         {
