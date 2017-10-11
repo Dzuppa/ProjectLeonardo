@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:NTT.Controls.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"  
+             MouseRightButtonDown="root_MouseRightButtonDown"
+             MouseRightButtonUp="root_MouseRightButtonUp"
+             MouseMove="root_MouseMove"
              >
     <materialDesign:Badged x:Name="BadgedButton" Badge="{Binding Alarm.Number}" BadgeChanged="BadgedButton_BadgeChanged" >
         <Button Width="75" Height="75" x:Name="btnWithNotify"
-                MouseRightButtonDown="root_MouseRightButtonDown"
-                MouseRightButtonUp="root_MouseRightButtonUp"
-                MouseMove="root_MouseMove">
+                >
             <StackPanel>
                 <materialDesign:PackIcon x:Name="btnIcon" Height="35" Width="35" HorizontalAlignment="Center" 
                                          VerticalAlignment="Top" />

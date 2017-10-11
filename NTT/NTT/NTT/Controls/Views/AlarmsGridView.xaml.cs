@@ -24,6 +24,11 @@ namespace NTT.Controls.Views
     /// </summary>
     public partial class AlarmsGridView : UserControl
     {
+        Point anchorPoint;
+        Point currentPoint;
+        bool isInDrag = false;
+        private TranslateTransform transform = new TranslateTransform();
+        
         public AlarmsGridView()
         {
             InitializeComponent();
@@ -62,5 +67,65 @@ namespace NTT.Controls.Views
                 column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
         }
+
+        private void ShowHideDetails(object sender, RoutedEventArgs e)
+        {
+            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
+                if (vis is DataGridRow)
+                {
+                    var row = (DataGridRow)vis;
+                    //row.DetailsVisibility =
+                    //row.DetailsVisibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+                    txt.Visibility = Visibility.Visible;
+                    AlarmsModel model = (AlarmsModel)row.DataContext;
+                    txt.Text = model.Name.ToString();
+                    break;
+                }
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        #region MouseMove
+
+        //eventi per la gestione del movimento tramite mouse
+
+        private void root_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var element = sender as FrameworkElement;
+            anchorPoint = e.GetPosition(null);
+            element.CaptureMouse();
+            isInDrag = true;
+            e.Handled = true;
+        }
+
+        private void root_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isInDrag)
+            {
+                var element = sender as FrameworkElement;
+                currentPoint = e.GetPosition(null);
+
+                transform.X += currentPoint.X - anchorPoint.X;
+                transform.Y += (currentPoint.Y - anchorPoint.Y);
+                this.RenderTransform = transform;
+                anchorPoint = currentPoint;
+            }
+        }
+
+        private void root_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (isInDrag)
+            {
+                var element = sender as FrameworkElement;
+                element.ReleaseMouseCapture();
+                isInDrag = false;
+                e.Handled = true;
+            }
+        }
+
+        #endregion
     }
 }
