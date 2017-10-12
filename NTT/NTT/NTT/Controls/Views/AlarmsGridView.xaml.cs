@@ -66,6 +66,21 @@ namespace NTT.Controls.Views
                 column.MinWidth = column.ActualWidth;
                 column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
+
+            DataGridRow row = null;
+            for (int i = 0; i < dgAlarm.Items.Count; i++)
+            {
+                // get one row
+                row = dgAlarm.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
+                if (i < 2) //put a condition to make row bolded 
+                {
+                    row.FontWeight = FontWeight.FromOpenTypeWeight(800);
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
         private void ShowHideDetails(object sender, RoutedEventArgs e)
