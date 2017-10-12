@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telerik.Windows.Controls.GridView;
 
 namespace NTT.Controls.Views
 {
@@ -35,23 +36,9 @@ namespace NTT.Controls.Views
 
             //this.DataContext = new AlarmsListViewModel();
 
-            dgAlarm.Loaded += SetMinWidths;
+            dgAlarm.Loaded += SetWidthAndFontWeight;
         }
-
-        /// <summary>
-        /// Evento per la selezione della riga della griglia degli allarmi
-        /// Gestisce il doppio click del mouse
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            DataGrid dg = sender as DataGrid;
-
-            AlarmsListViewModel dt = (AlarmsListViewModel)dg.DataContext;
-
-            txt.Text = dt.AlarmsList[dg.SelectedIndex].Name;
-        }
+        
 
         /// <summary>
         /// Una volta che la griglia viene caricata setto la width
@@ -59,19 +46,19 @@ namespace NTT.Controls.Views
         /// </summary>
         /// <param name="source"></param>
         /// <param name="e"></param>
-        public void SetMinWidths(object source, EventArgs e)
+        public void SetWidthAndFontWeight(object source, EventArgs e)
         {
             foreach (var column in dgAlarm.Columns)
             {
                 column.MinWidth = column.ActualWidth;
-                column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
+                column.Width = new Telerik.Windows.Controls.GridViewLength(1,Telerik.Windows.Controls.GridViewLengthUnitType.Star);
             }
 
-            DataGridRow row = null;
+            GridViewRow row = null;
             for (int i = 0; i < dgAlarm.Items.Count; i++)
             {
                 // get one row
-                row = dgAlarm.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow;
+                row = dgAlarm.ItemContainerGenerator.ContainerFromIndex(i) as GridViewRow;
                 if (i < 2) //put a condition to make row bolded 
                 {
                     row.FontWeight = FontWeight.FromOpenTypeWeight(800);
@@ -83,14 +70,12 @@ namespace NTT.Controls.Views
             }
         }
 
-        private void ShowHideDetails(object sender, RoutedEventArgs e)
+        private void RadButton_Click(object sender, RoutedEventArgs e)
         {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
-                if (vis is DataGridRow)
+                if (vis is GridViewRow)
                 {
-                    var row = (DataGridRow)vis;
-                    //row.DetailsVisibility =
-                    //row.DetailsVisibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+                    var row = (GridViewRow)vis;
                     txt.Visibility = Visibility.Visible;
                     AlarmsModel model = (AlarmsModel)row.DataContext;
                     txt.Text = model.Name.ToString();

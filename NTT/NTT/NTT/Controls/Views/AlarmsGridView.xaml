@@ -5,19 +5,41 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NTT.Controls.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              mc:Ignorable="d" 
              MouseRightButtonDown="root_MouseRightButtonDown"
              MouseRightButtonUp="root_MouseRightButtonUp"
              MouseMove="root_MouseMove"
              Background ="WhiteSmoke"
-             MaxHeight="350" MaxWidth="500" 
+             MaxHeight="450"  Opacity="0.75"
              d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel LastChildFill="True">
     <Border CornerRadius="3" BorderThickness="1" BorderBrush="Black">
         <StackPanel>
-            <Button HorizontalAlignment="Right"  ToolTip="Close" x:Name="CloseBtn" Click="CloseBtn_Click">
+            <Button HorizontalAlignment="Right" Margin="0,1,1,0" ToolTip="Close" x:Name="CloseBtn" Click="CloseBtn_Click">
                 <materialDesign:PackIcon Width="20" Height="20" Kind="WindowClose" />
             </Button>
-            <DataGrid x:Name="dgAlarm" IsReadOnly="True" ItemsSource="{Binding AlarmsList}" 
+
+                <telerik:RadGridView x:Name="dgAlarm" IsReadOnly="True" ItemsSource="{Binding AlarmsList}"
+                                     AutoGenerateColumns="False" Width="Auto" FontSize="15" Margin="0,5,0,0"
+                                     HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                                     RowIndicatorVisibility="Collapsed" ShowColumnSortIndexes="True">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="Id" DataMemberBinding="{Binding Id}" />
+                        <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Name}" />
+                        <telerik:GridViewColumn Header="Scenario allarme" >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <telerik:RadButton Content="Scenario" Click="RadButton_Click" />
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                    </telerik:RadGridView.Columns>                    
+                </telerik:RadGridView>
+            
+            
+            
+            <!--<DataGrid x:Name="dgAlarm" IsReadOnly="True" ItemsSource="{Binding AlarmsList}" 
                   AutoGenerateColumns="True" Width="Auto" FontSize="15" Margin="0,5,0,0"
                   HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                 <DataGrid.Columns>
@@ -29,12 +51,13 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-            </DataGrid>
-            <StackPanel Margin="3,10,0,0" Orientation="Horizontal">
-                <TextBox x:Name="searchString" Margin="0,0,15,0" Width="150" materialDesign:HintAssist.Hint="Search" />
-                <Button x:Name="btnSearch" Content="Search" Width="150"/>
+            </DataGrid>-->
+            <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                    <telerik:RadWatermarkTextBox x:Name="searchString" Margin="0,0,15,0" Width="150" WatermarkContent="Search" />
+                    <Button x:Name="btnSearch" Content="Search" Width="150"/>
             </StackPanel>
             <TextBlock Visibility="Collapsed" x:Name="txt" Text="Click a Row"></TextBlock>
         </StackPanel>
     </Border>
+    </DockPanel>
 </UserControl>
