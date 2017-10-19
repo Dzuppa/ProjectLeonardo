@@ -34,5 +34,20 @@ namespace NTT.Controls.ViewModels
             }
             
         }
+
+        public AlarmsListViewModel Change()
+        {
+            AlarmsListViewModel vm = new AlarmsListViewModel();
+
+            ObservableCollection<AlarmsModel> list = new ObservableCollection<AlarmsModel>();
+
+            list.Add(new AlarmsModel { Id = "0", Name = "Alfa" });
+            list.Add(new AlarmsModel { Id = "1", Name = "Beta" });
+            list.Add(new AlarmsModel { Id = "3", Name = "Gamma" });
+
+            vm.AlarmsList = list;
+
+            return vm;
+        }
     }
 }

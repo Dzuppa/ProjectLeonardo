@@ -29,12 +29,14 @@ namespace NTT.Controls.Views
         Point currentPoint;
         bool isInDrag = false;
         private TranslateTransform transform = new TranslateTransform();
-        
+
+        AlarmsListViewModel alvm = new AlarmsListViewModel();
+
         public AlarmsGridView()
         {
             InitializeComponent();
 
-            //this.DataContext = new AlarmsListViewModel();
+            this.DataContext = alvm;
 
             dgAlarm.Loaded += SetWidthAndFontWeight;
         }
@@ -76,9 +78,12 @@ namespace NTT.Controls.Views
                 if (vis is GridViewRow)
                 {
                     var row = (GridViewRow)vis;
-                    txt.Visibility = Visibility.Visible;
+                    //txt.Visibility = Visibility.Visible;
                     AlarmsModel model = (AlarmsModel)row.DataContext;
-                    txt.Text = model.Name.ToString();
+                    Random rand = new Random();
+                    model.dettaglio = rand.Next(100).ToString();
+                    row.DetailsVisibility = Visibility.Visible;
+                    //txt.Text = model.Name.ToString();
                     break;
                 }
         }
@@ -127,5 +132,10 @@ namespace NTT.Controls.Views
         }
 
         #endregion
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = alvm.Change();
+        }
     }
 }

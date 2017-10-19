@@ -23,7 +23,8 @@
                 <telerik:RadGridView x:Name="dgAlarm" IsReadOnly="True" ItemsSource="{Binding AlarmsList}"
                                      AutoGenerateColumns="False" Width="Auto" FontSize="15" Margin="0,5,0,0"
                                      HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
-                                     RowIndicatorVisibility="Collapsed" ShowColumnSortIndexes="True">
+                                     RowIndicatorVisibility="Collapsed" ShowColumnSortIndexes="True"
+                                     >
                     <telerik:RadGridView.Columns>
                         <telerik:GridViewDataColumn Header="Id" DataMemberBinding="{Binding Id}" />
                         <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Name}" />
@@ -34,7 +35,16 @@
                                 </DataTemplate>
                             </telerik:GridViewColumn.CellTemplate>
                         </telerik:GridViewColumn>
-                    </telerik:RadGridView.Columns>                    
+                    </telerik:RadGridView.Columns>
+                    
+                    <telerik:RadGridView.RowDetailsTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Dettaglio:"></TextBlock>
+                                <TextBlock Text="{Binding dettaglio}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </telerik:RadGridView.RowDetailsTemplate>
                 </telerik:RadGridView>
             
             
@@ -53,8 +63,12 @@
                 </DataGrid.Columns>
             </DataGrid>-->
             <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                    <ComboBox>
+                        <ComboBoxItem  IsSelected="True">mario</ComboBoxItem>
+                        <ComboBoxItem>gino</ComboBoxItem>
+                    </ComboBox>
                     <telerik:RadWatermarkTextBox x:Name="searchString" Margin="0,0,15,0" Width="150" WatermarkContent="Search" />
-                    <Button x:Name="btnSearch" Content="Search" Width="150"/>
+                    <Button x:Name="btnSearch" Content="Search" Width="150" Click="btnSearch_Click"/>
             </StackPanel>
             <TextBlock Visibility="Collapsed" x:Name="txt" Text="Click a Row"></TextBlock>
         </StackPanel>

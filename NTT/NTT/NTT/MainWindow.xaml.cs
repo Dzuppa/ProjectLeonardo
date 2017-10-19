@@ -33,9 +33,9 @@ namespace NTT
 
         private void BtnWithNotify_Click(object sender, RoutedEventArgs e)
         {
-            AlarmsListViewModel ala = new AlarmsListViewModel();
+            //AlarmsListViewModel ala = new AlarmsListViewModel();
 
-            AlarmsGrid.DataContext = ala;
+            //AlarmsGrid.DataContext = ala;
 
             AlarmsGrid.Visibility = Visibility.Visible;
         }

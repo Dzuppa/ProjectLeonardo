@@ -12,10 +12,16 @@ namespace NTT.Controls.ViewModels
 {
     class NotifyViewModel : IListen<object>
     {
-        public NotifyViewModel(EventAggregator eventAggregator)
+        private EventAggregator eventAggregator;
+        private WebSocketManager.WebSocketManager socketManager;
+
+        public NotifyViewModel()
         {
             LoadModel();
-            eventAggregator.Subscribe(this);
+            this.eventAggregator = new EventAggregator();
+
+            this.eventAggregator.Subscribe(this);
+            this.socketManager = new WebSocketManager.WebSocketManager(eventAggregator);
         }
 
         public NotifyModel Alarm

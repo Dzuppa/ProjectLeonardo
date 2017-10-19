@@ -11,6 +11,7 @@ namespace NTT.Controls.Models
     {
         private string _id;
         private string _name;
+        private string _dettaglio;
 
         public string Id
         {
@@ -42,6 +43,23 @@ namespace NTT.Controls.Models
                 {
                     _name = value;
                     RaisePropertyChanged("Name");
+                }
+            }
+        }
+
+        public string dettaglio
+        {
+            get
+            {
+                return _dettaglio;
+            }
+
+            set
+            {
+                if (_dettaglio != value)
+                {
+                    _dettaglio = value;
+                    RaisePropertyChanged("dettaglio");
                 }
             }
         }

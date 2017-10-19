@@ -28,8 +28,6 @@ namespace NTT.Controls.Views
         Point currentPoint;
         bool isInDrag = false;
         private TranslateTransform transform = new TranslateTransform();
-        private EventAggregator eventAggregator;
-        private WebSocketManager.WebSocketManager socketManager;
 
         #endregion
 
@@ -40,11 +38,7 @@ namespace NTT.Controls.Views
             
             InitializeComponent();
 
-            eventAggregator = new EventAggregator();
-
-            this.DataContext = new NotifyViewModel(eventAggregator);
-
-            socketManager = new WebSocketManager.WebSocketManager(eventAggregator);
+            this.DataContext = new NotifyViewModel();
 
             Loaded += NotifyViews_Loaded;
 
