@@ -11,11 +11,37 @@ namespace NTT.WebSocketManager
     {
         private EventAggregator eventAggregator;
         private WebSocket webSocket;
+        private static WebSocketManager _wbm;
 
+        private WebSocketManager() { }
 
-        public WebSocketManager(EventAggregator eventAggregator)
+        /// <summary>
+        /// Factory with singleton style inside
+        /// </summary>
+        /// <param name="listen"></param>
+        /// <returns></returns>
+        public static WebSocketManager InitializeWebSocketManager(IListen listen)
         {
-            this.eventAggregator = eventAggregator;
+            if (_wbm == null)
+            {
+                _wbm = new WebSocketManager(listen);
+            }
+            else
+            {
+                _wbm.eventAggregator.Subscribe(listen);
+            }
+            return _wbm;
+        }
+        
+        /// <summary>
+        /// Private constructor
+        /// </summary>
+        /// <param name="listen"></param>
+        private WebSocketManager(IListen listen)
+        {
+            this.eventAggregator = new EventAggregator();
+
+            this.eventAggregator.Subscribe(listen);
 
             webSocket = new WebSocket("ws://localhost/Laputa");
             
