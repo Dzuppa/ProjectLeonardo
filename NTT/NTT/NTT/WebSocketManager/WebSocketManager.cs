@@ -43,8 +43,9 @@ namespace NTT.WebSocketManager
 
             this.eventAggregator.Subscribe(listen);
 
-            webSocket = new WebSocket("ws://localhost/Laputa");
+            webSocket = new WebSocket("ws://dev02-frt-srv1.mngt.dev:7073/GFInotificationserver/wsEndpoint/topic/receiveMessage");
             
+
             webSocket.SetProxy("https://10.29.140.134:8080", "ditteesterne\\mtroia", "password3");
 
             webSocket.OnOpen += (sender, e) =>
