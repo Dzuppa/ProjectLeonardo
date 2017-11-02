@@ -36,11 +36,11 @@ namespace NTT.Controls.Views
         {
             InitializeComponent();
 
-            this.DataContext = alvm;
+            this.DataContext = alvm.GetData();
 
-            dgAlarm.Loaded += SetWidthAndFontWeight;
+            //dgAlarm.Loaded += SetWidthAndFontWeight;
         }
-        
+
 
         /// <summary>
         /// Una volta che la griglia viene caricata setto la width
@@ -53,7 +53,7 @@ namespace NTT.Controls.Views
             foreach (var column in dgAlarm.Columns)
             {
                 column.MinWidth = column.ActualWidth;
-                column.Width = new Telerik.Windows.Controls.GridViewLength(1,Telerik.Windows.Controls.GridViewLengthUnitType.Star);
+                column.Width = new Telerik.Windows.Controls.GridViewLength(1, Telerik.Windows.Controls.GridViewLengthUnitType.Star);
             }
 
             GridViewRow row = null;
@@ -75,17 +75,22 @@ namespace NTT.Controls.Views
         private void RadButton_Click(object sender, RoutedEventArgs e)
         {
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
+            {
                 if (vis is GridViewRow)
                 {
                     var row = (GridViewRow)vis;
                     //txt.Visibility = Visibility.Visible;
                     AlarmsModel model = (AlarmsModel)row.DataContext;
                     Random rand = new Random();
-                    model.dettaglio = rand.Next(100).ToString();
+                    model.AreaAcronym = "area";
+                    if(model.Tracks != null)
+                        model.Tracks.Add("traccia 0");
+                    model.VOI = "VOI";
                     row.DetailsVisibility = Visibility.Visible;
                     //txt.Text = model.Name.ToString();
                     break;
                 }
+            }
         }
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)

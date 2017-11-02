@@ -1,4 +1,5 @@
-﻿using NTT.Controls.Models;
+﻿using NTT.AlarmsGridWS;
+using NTT.Controls.Models;
 using NTT.WebServiceConnector;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace NTT.Controls.ViewModels
     {
         public AlarmsListViewModel()
         {
-            LoadModel();
+            this.AlarmsList = new ObservableCollection<AlarmsModel>();
+            //LoadModel();
         }
 
         public ObservableCollection<AlarmsModel> AlarmsList
@@ -22,17 +24,34 @@ namespace NTT.Controls.ViewModels
             set;
         }
 
-        public void LoadModel()
+        public AlarmsListViewModel GetData()
         {
-            WsCon wsCon = new WsCon();
-            ObservableCollection<AlarmsModel> aList = new ObservableCollection<AlarmsModel>();
+            AlarmsListViewModel agvm = new AlarmsListViewModel();
+            List<alarmSmartAgent> alarmList = WsCon.GetAMListFromWebService();
+            agvm = GetViewModelFromDTO(alarmList);
+            return agvm;
 
-            if (wsCon.connect2WebService())
+        }
+
+        private AlarmsListViewModel GetViewModelFromDTO(List<alarmSmartAgent> list)
+        {
+            AlarmsListViewModel agvm = new AlarmsListViewModel();
+            //transform res to agvm
+            foreach (alarmSmartAgent alarm in list)
             {
-                aList = wsCon.GetAMListFromWebService();
-                AlarmsList = aList;
+                AlarmsModel model = new AlarmsModel();
+                model.IdAlarm = alarm.identifier.id + "-" + alarm.identifier.version;
+                model.IdSmartAgent = alarm.smartAgent.identifier.id + "-" + alarm.smartAgent.identifier.version;
+                //model.SmartAgentType = alarm.smartAgent.smartAgentType.code + " - " + alarm.smartAgent.smartAgentType.acronym;
+                model.VesselName = alarm.systemTrack.staticData.identificationData.name;
+                model.IMO = alarm.systemTrack.staticData.identificationData.imo.ToString();
+                model.MMSI = alarm.systemTrack.staticData.identificationData.mmsi.ToString();
+                model.Flag = alarm.systemTrack.staticData.identificationData.countryCode.code;
+                model.LastTrack = alarm.detectionDate.ToShortDateString();
+
+                agvm.AlarmsList.Add(model);
             }
-            
+            return agvm;
         }
 
         public AlarmsListViewModel Change()
@@ -41,9 +60,7 @@ namespace NTT.Controls.ViewModels
 
             ObservableCollection<AlarmsModel> list = new ObservableCollection<AlarmsModel>();
 
-            list.Add(new AlarmsModel { Id = "0", Name = "Alfa" });
-            list.Add(new AlarmsModel { Id = "1", Name = "Beta" });
-            list.Add(new AlarmsModel { Id = "3", Name = "Gamma" });
+            
 
             vm.AlarmsList = list;
 

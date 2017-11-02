@@ -8,12 +8,12 @@
         xmlns:views="clr-namespace:NTT.Controls.Views"
         xmlns:local="clr-namespace:NTT"
         mc:Ignorable="d"
-        Title="Nereus Tactical Table" Height="350" Width="525"
+        Title="Nereus Tactical Table" 
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
         <views:NotifyView x:Name="Notify" Margin="50"></views:NotifyView>
         <views:AlarmsGridView x:Name="AlarmsGrid" Grid.Column="1" Visibility="Collapsed"></views:AlarmsGridView>

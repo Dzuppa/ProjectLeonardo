@@ -11,7 +11,7 @@
              MouseRightButtonUp="root_MouseRightButtonUp"
              MouseMove="root_MouseMove"
              Background ="WhiteSmoke"
-             MaxHeight="450"  Opacity="0.75"
+             MaxHeight="450"  Opacity="0.75" Width="Auto"
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel LastChildFill="True">
     <Border CornerRadius="3" BorderThickness="1" BorderBrush="Black">
@@ -21,13 +21,11 @@
             </Button>
 
                 <telerik:RadGridView x:Name="dgAlarm" IsReadOnly="True" ItemsSource="{Binding AlarmsList}"
-                                     AutoGenerateColumns="False" Width="Auto" FontSize="15" Margin="0,5,0,0"
+                                     AutoGenerateColumns="True" Width="Auto" FontSize="15" Margin="0,5,0,0"
                                      HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                                      RowIndicatorVisibility="Collapsed" ShowColumnSortIndexes="True"
                                      >
                     <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn Header="Id" DataMemberBinding="{Binding Id}" />
-                        <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding Name}" />
                         <telerik:GridViewColumn Header="Scenario allarme" >
                             <telerik:GridViewColumn.CellTemplate>
                                 <DataTemplate>

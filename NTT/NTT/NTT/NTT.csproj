@@ -48,6 +48,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -120,6 +122,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\AlarmsGridWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="WebServiceConnector\WsCon.cs" />
     <Compile Include="WebSocketManager\EventAggregator.cs" />
     <Compile Include="WebSocketManager\IListen.cs" />
@@ -181,6 +188,55 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService.wsdl" />
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\ActiveAlarmsGridWebService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.exportDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.exportPagingDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.getDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.getPagingDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.GridPagingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.GridResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlarmsGridWS\NTT.AlarmsGridWS.ReportType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -197,6 +253,23 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AlarmsGridWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlarmsGridWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlarmsGridWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AlarmsGridWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

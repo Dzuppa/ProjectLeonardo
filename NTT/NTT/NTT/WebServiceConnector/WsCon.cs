@@ -1,4 +1,5 @@
-﻿using NTT.Controls.Models;
+﻿using NTT.AlarmsGridWS;
+using NTT.Controls.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,16 +18,21 @@ namespace NTT.WebServiceConnector
             return true;
         }
 
-        public ObservableCollection<AlarmsModel> GetAMListFromWebService()
+        public static List<alarmSmartAgent> GetAMListFromWebService()
         {
-            ObservableCollection<AlarmsModel> aList = new ObservableCollection<AlarmsModel>();
+            using (ActiveAlarmsGridWebServiceClient AlarmsGridClient = new ActiveAlarmsGridWebServiceClient())
+            {
+                GridFilterPagingLoadConfigType config = new GridFilterPagingLoadConfigType();
 
-            aList.Add(new AlarmsModel { Id = "0", Name = "Zero" });
-            aList.Add(new AlarmsModel { Id = "1", Name = "Uno" });
-            aList.Add(new AlarmsModel { Id = "2", Name = "Due" });
-            aList.Add(new AlarmsModel { Id = "3", Name = "Tre" });
+                config.sortingfield = "id";
+                config.sortdirection = SortDirType.ASC;
+                config.itemsperpage = 1;
+                config.zerobasedpageoffset = 0;
 
-            return aList;
+                GridPagingResponseType res = AlarmsGridClient.getPagingData(null, config, null);
+
+                return res.resultlist.OfType<alarmSmartAgent>().ToList();
+            }
         }
         
     }
